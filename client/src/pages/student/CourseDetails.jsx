@@ -75,6 +75,8 @@ const CourseDetails = () => {
         const { session_url } = data
         window.location.replace(session_url)
       } else {
+        console.log(data.message);
+        
         toast.error(data.message)
       }
 
@@ -119,7 +121,7 @@ const CourseDetails = () => {
             <p>{courseData.enrolledStudents.length} {courseData.enrolledStudents.length > 1 ? 'students' : 'student'}</p>
           </div>
 
-          <p className='text-sm'>Course by <span className='text-blue-600 underline'>{courseData.educator.name}</span></p>
+          <p className='text-sm'>Course by <span className='text-blue-600 underline'>{courseData.educator &&courseData.educator.name}</span></p>
 
           <div className="pt-8 text-gray-800">
             <h2 className="text-xl font-semibold">Course Structure</h2>
